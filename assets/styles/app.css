@@ -455,6 +455,20 @@ textarea,
     columns: 1;
   }
 
+  .hero-card,
+  .profile-card,
+  .social-panel,
+  .skill-card,
+  .expertise-card,
+  .certification-card,
+  .footer-card {
+    margin-top: 1rem;
+  }
+
+  .hero-section .hero-card {
+    margin-top: 0;
+  }
+
   .header-actions {
     margin-top: 1rem;
   }
