@@ -172,12 +172,15 @@ textarea,
 }
 
 .header-actions {
+  justify-content: flex-end;
+  flex-wrap: nowrap;
   row-gap: 0.5rem;
 }
 
 .brand-mark {
   gap: 0.75rem;
   font-weight: 700;
+  min-width: 0;
 }
 
 .brand-mark__logo {
@@ -188,6 +191,10 @@ textarea,
 
 .brand-mark__meta {
   color: var(--portfolio-accent);
+}
+
+.brand-mark > div {
+  min-width: 0;
 }
 
 .theme-toggle {
@@ -205,6 +212,12 @@ textarea,
 
 .theme-toggle .slds-checkbox_faux_container {
   margin-right: 0;
+}
+
+.theme-toggle .slds-checkbox_on,
+.theme-toggle .slds-checkbox_off,
+[data-i18n="findMe"] {
+  color: var(--portfolio-text);
 }
 
 .portfolio-shell[data-theme="dark"] .theme-toggle {
@@ -323,29 +336,15 @@ textarea,
 }
 
 .experience-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  gap: 1rem;
   align-items: start;
   padding-bottom: 1.25rem;
-}
-
-.experience-item::before {
-  content: "";
-  position: absolute;
-  top: 0.5rem;
-  left: 2.15rem;
-  bottom: -0.25rem;
-  width: 2px;
-  background: linear-gradient(180deg, var(--portfolio-accent), transparent);
 }
 
 .experience-item:last-child {
   padding-bottom: 0;
 }
 
-.experience-item:last-child::before {
+.experience-item:last-child .experience-item__year-col::before {
   display: none;
 }
 
@@ -354,7 +353,8 @@ textarea,
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 4.25rem;
+  width: 100%;
+  max-width: 4.25rem;
   height: 4.25rem;
   background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-highlight));
   color: #ffffff;
@@ -365,6 +365,25 @@ textarea,
 
 .portfolio-shell[data-theme="dark"] .experience-item__year {
   color: #08111e;
+}
+
+.experience-item__year-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.experience-item__year-col::before {
+  content: "";
+  position: absolute;
+  top: calc(50% + 2.25rem);
+  bottom: -0.25rem;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--portfolio-accent), transparent);
+  height: 100%;
 }
 
 .portfolio-section_alt {
@@ -455,6 +474,10 @@ textarea,
     columns: 1;
   }
 
+  .brand-mark__meta {
+    display: none;
+  }
+
   .hero-card,
   .profile-card,
   .social-panel,
@@ -469,8 +492,16 @@ textarea,
     margin-top: 0;
   }
 
-  .header-actions {
+  .experience-item {
     margin-top: 1rem;
+  }
+
+  .experience-item:first-child {
+    margin-top: 0;
+  }
+
+  .header-actions {
+    margin-top: 0;
   }
 
   .portfolio-shell.has-fixed-header {
@@ -484,23 +515,22 @@ textarea,
     padding: 1.125rem;
   }
 
-  .theme-toggle,
-  #lang-toggle {
-    width: 100%;
+  .brand-mark {
+    gap: 0.5rem;
+  }
+
+  .brand-mark__logo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .theme-toggle {
+    min-height: 2.5rem;
+    padding: 0.25rem 0.35rem;
   }
 
   .social-link {
     min-height: 3.25rem;
-  }
-
-  .experience-item {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .experience-item::before {
-    left: 1rem;
-    top: 4.75rem;
   }
 
   .experience-item__year {
