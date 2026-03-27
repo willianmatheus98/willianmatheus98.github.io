@@ -204,10 +204,10 @@ textarea,
   flex-wrap: nowrap;
   min-height: 2.75rem;
   width: 100%;
-  padding: 0.35rem 0.5rem;
-  border: 1px solid var(--portfolio-border);
-  border-radius: 999px;
-  background: var(--portfolio-surface-strong);
+  padding: 0.25rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .theme-toggle .slds-checkbox_faux_container {
@@ -218,11 +218,6 @@ textarea,
 .theme-toggle .slds-checkbox_off,
 [data-i18n="findMe"] {
   color: var(--portfolio-text);
-}
-
-.portfolio-shell[data-theme="dark"] .theme-toggle {
-  background: rgba(15, 29, 49, 0.96);
-  border-color: rgba(185, 222, 255, 0.18);
 }
 
 .hero-section {
@@ -527,6 +522,11 @@ textarea,
   .theme-toggle {
     min-height: 2.5rem;
     padding: 0.25rem 0.35rem;
+  }
+
+  .theme-toggle .slds-checkbox_on,
+  .theme-toggle .slds-checkbox_off {
+    font-size: smaller;
   }
 
   .social-link {
