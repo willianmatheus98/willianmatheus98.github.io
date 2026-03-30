@@ -47,6 +47,22 @@ body {
   transition: background-color 180ms ease, color 180ms ease;
 }
 
+/* Hide background when particles.js is loaded */
+body.has-particles {
+  background: none;
+}
+
+/* Particles.js background */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .portfolio-shell {
   min-height: 100vh;
   color: var(--portfolio-text);
@@ -76,7 +92,14 @@ textarea,
   letter-spacing: -0.015em;
 }
 
-.portfolio-shell[data-theme="dark"] {
+/* .portfolio-shell[data-theme="dark"] {
+  background:
+    radial-gradient(circle at top left, rgba(94, 179, 255, 0.12), transparent 30%),
+    radial-gradient(circle at top right, rgba(247, 198, 109, 0.1), transparent 25%),
+    linear-gradient(180deg, #08111e 0%, var(--portfolio-bg) 50%, var(--portfolio-bg-alt) 100%);
+} */
+
+#particles-js[data-theme="dark"] {
   background:
     radial-gradient(circle at top left, rgba(94, 179, 255, 0.12), transparent 30%),
     radial-gradient(circle at top right, rgba(247, 198, 109, 0.1), transparent 25%),
@@ -218,10 +241,6 @@ textarea,
 .theme-toggle .slds-checkbox_off,
 [data-i18n="findMe"] {
   color: var(--portfolio-text);
-}
-
-.hero-section {
-  overflow: hidden;
 }
 
 .hero-summary,
